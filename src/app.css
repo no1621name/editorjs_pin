@@ -1,0 +1,45 @@
+@import "https://fonts.googleapis.com/css2?family=Manrope&display=swap";
+
+* {
+  box-sizing: border-box;
+  font-family: 'Manrope';
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0275d8;
+  background: transparent;
+  border: 1px solid #0275d8;
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: color .3s ease, background .3s ease;
+}
+
+.btn:hover {
+  background: #0275d8;
+  color: #fff;
+}
+
+.editor {
+  padding: .75rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.editor #editorjs .codex-editor .codex-editor__redactor {
+  padding-bottom: 100px !important;
+}
+
+.editor footer {
+  margin: 0 auto;
+  max-width: 650px;
+  display: flex;
+  justify-content: flex-end;
+}
