@@ -7,7 +7,9 @@ import ImageTool from '@editorjs/image';
 const editor = new EditorJS({
   holder: 'editorjs',
   tools: {
-    image: ImageTool,
+    image: {
+      class: ImageTool,
+    },
     paragraph: {
       class: Paragraph,
     },
@@ -27,7 +29,7 @@ const editor = new EditorJS({
         }
       }
     ]
-  }
+  },
 });
 
 editor.isReady.then(() => {
