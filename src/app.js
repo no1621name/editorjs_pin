@@ -58,7 +58,7 @@ class Disabler {
   }
 
   removeDefaultPopoverTunes(index, tunesNamesList = this.#DEFAULT_TUNES_NAMES) {
-    const observer =  new MutationObserver(() => {
+    const observer = new MutationObserver(() => {
       if (this.#blocks.getCurrentBlockIndex() === index) {
         tunesNamesList.forEach((name) => this.#hideToolbarItemByName(name));
       } else {
@@ -122,11 +122,13 @@ const editor = new EditorJS({
       }
     ]
   },
-  onChange: (_, event) => {
+  onChange: (api, event) => {
     switch (event.type) {
       case 'block-added':
         if (event.detail.index === FIXED_TOOLS_LENGTH) {
           disabler.removeDefaultPopoverTunesOnClick(event.detail.target.holder, ['move-up']);
+        } else if (event.detail.index < FIXED_TOOLS_LENGTH) {
+          api.blocks.delete(event.detail.index);
         }
       case 'block-moved':
         if (event.type === 'block-moved' && event.detail.toIndex === FIXED_TOOLS_LENGTH) {
